@@ -6,7 +6,7 @@ use App\Commons\Libs\Http\BaseSchema;
 
 class HospitalUnitSchema extends BaseSchema
 {
-    private $hospitalUnitId;
+    private $hospitalInstallationId;
     private $code;
     private $name;
     private $description;
@@ -14,7 +14,7 @@ class HospitalUnitSchema extends BaseSchema
     protected function rules()
     {
         return [
-            'hospital_unit_id' => 'required|uuid',
+            'hospital_installation_id' => 'required|uuid',
             'code' => 'required|string',
             'name' => 'required|string',
             'description' => 'string'
@@ -25,11 +25,11 @@ class HospitalUnitSchema extends BaseSchema
     {
         $code = $this->body['code'];
         $name = $this->body['name'];
-        $hospitalUnitId = $this->body['hospital_unit_id'];
+        $hospitalInstallationId = $this->body['hospital_installation_id'];
         $description = !empty(trim($this->body['description'] ?? '')) ? $this->body['description'] : null;
         $this->setName($name)
             ->setCode($code)
-            ->setHospitalUnitId($hospitalUnitId)
+            ->setHospitalInstallationId($hospitalInstallationId)
             ->setDescription($description);
     }
 
@@ -96,21 +96,21 @@ class HospitalUnitSchema extends BaseSchema
     }
 
     /**
-     * Get the value of hospitalUnitId
+     * Get the value of hospitalInstallationId
      */
-    public function getHospitalUnitId()
+    public function getHospitalInstallationId()
     {
-        return $this->hospitalUnitId;
+        return $this->hospitalInstallationId;
     }
 
     /**
-     * Set the value of hospitalUnitId
+     * Set the value of hospitalInstallationId
      *
      * @return  self
      */
-    public function setHospitalUnitId($hospitalUnitId)
+    public function setHospitalInstallationId($hospitalInstallationId)
     {
-        $this->hospitalUnitId = $hospitalUnitId;
+        $this->hospitalInstallationId = $hospitalInstallationId;
 
         return $this;
     }

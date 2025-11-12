@@ -62,7 +62,7 @@ class HospitalUnitService implements HospitalUnitInterface
             $schema->hydrateBody();
 
             $data = [
-                'hospital_installation_id' => $schema->getHospitalUnitId(),
+                'hospital_installation_id' => $schema->getHospitalInstallationId(),
                 'code' => $schema->getCode(),
                 'name' => $schema->getName(),
                 'description' => $schema->getDescription()
@@ -92,7 +92,7 @@ class HospitalUnitService implements HospitalUnitInterface
             }
 
             $data = [
-                'hospital_installation_id' => $schema->getHospitalUnitId(),
+                'hospital_installation_id' => $schema->getHospitalInstallationId(),
                 'code' => $schema->getCode(),
                 'name' => $schema->getName(),
                 'description' => $schema->getDescription()
