@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('hospital_units', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('hospital_installation_id')->nullable();
+            $table->string('code')->unique();
             $table->string('name');
+            $table->text('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('hospital_installation_id')

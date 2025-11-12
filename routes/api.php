@@ -17,4 +17,17 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'auth'], function () {
         Route::post('login', [App\Http\Controllers\Web\AuthController::class, 'login']);
     });
+
+    Route::group(['middleware' => 'jwt.verify'], function () {
+
+        Route::group(['prefix' => 'master'], function () {
+            Route::group(['prefix' => 'hospital-installation'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'delete']);
+            });
+        });
+    });
 });
