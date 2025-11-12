@@ -15,7 +15,9 @@ class HospitalUnit extends Model
 
     protected $fillable = [
         'hospital_installation_id',
+        'code',
         'name',
+        'description',
     ];
 
     public function hospital_installation()
