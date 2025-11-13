@@ -21,6 +21,7 @@ Route::group(['prefix' => 'v1'], function () {
 
         Route::group(['prefix' => 'master'], function () {
 
+            # master route hospital
             Route::group(['prefix' => 'hospital-installation'], function () {
                 Route::post('/', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'create']);
                 Route::get('/', [App\Http\Controllers\Web\Master\HospitalInstallationController::class, 'findAll']);
@@ -68,6 +69,25 @@ Route::group(['prefix' => 'v1'], function () {
                 Route::put('/{id}', [App\Http\Controllers\Web\Master\ClinicController::class, 'update']);
                 Route::delete('/{id}', [App\Http\Controllers\Web\Master\ClinicController::class, 'delete']);
             });
+
+            # master route staff
+            Route::group(['prefix' => 'job-position'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\JobPositionController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\JobPositionController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\JobPositionController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\JobPositionController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\JobPositionController::class, 'delete']);
+            });
+
+            Route::group(['prefix' => 'job-department'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\JobDepartmentController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\JobDepartmentController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\JobDepartmentController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\JobDepartmentController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\JobDepartmentController::class, 'delete']);
+            });
+
+
         });
     });
 });
