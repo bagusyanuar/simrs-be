@@ -40,4 +40,9 @@ class Room extends Model
     {
         return $this->belongsTo(RoomClass::class, 'room_class_id');
     }
+
+    public function beds()
+    {
+        return $this->hasMany(RoomBed::class, 'room_id');
+    }
 }

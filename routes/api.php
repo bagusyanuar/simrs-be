@@ -44,6 +44,14 @@ Route::group(['prefix' => 'v1'], function () {
                 Route::put('/{id}', [App\Http\Controllers\Web\Master\RoomClassController::class, 'update']);
                 Route::delete('/{id}', [App\Http\Controllers\Web\Master\RoomClassController::class, 'delete']);
             });
+
+            Route::group(['prefix' => 'room'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\RoomController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\RoomController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\RoomController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\RoomController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\RoomController::class, 'delete']);
+            });
         });
     });
 });
