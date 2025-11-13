@@ -60,6 +60,14 @@ Route::group(['prefix' => 'v1'], function () {
                 Route::put('/{id}', [App\Http\Controllers\Web\Master\RoomBedController::class, 'update']);
                 Route::delete('/{id}', [App\Http\Controllers\Web\Master\RoomBedController::class, 'delete']);
             });
+
+            Route::group(['prefix' => 'clinic'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\ClinicController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\ClinicController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\ClinicController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\ClinicController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\ClinicController::class, 'delete']);
+            });
         });
     });
 });
