@@ -36,6 +36,14 @@ Route::group(['prefix' => 'v1'], function () {
                 Route::put('/{id}', [App\Http\Controllers\Web\Master\HospitalUnitController::class, 'update']);
                 Route::delete('/{id}', [App\Http\Controllers\Web\Master\HospitalUnitController::class, 'delete']);
             });
+
+            Route::group(['prefix' => 'room-class'], function () {
+                Route::post('/', [App\Http\Controllers\Web\Master\RoomClassController::class, 'create']);
+                Route::get('/', [App\Http\Controllers\Web\Master\RoomClassController::class, 'findAll']);
+                Route::get('/{id}', [App\Http\Controllers\Web\Master\RoomClassController::class, 'findByID']);
+                Route::put('/{id}', [App\Http\Controllers\Web\Master\RoomClassController::class, 'update']);
+                Route::delete('/{id}', [App\Http\Controllers\Web\Master\RoomClassController::class, 'delete']);
+            });
         });
     });
 });
